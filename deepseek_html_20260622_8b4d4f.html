@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chellapandi M · Data Analyst Portfolio</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f7fc;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem 1rem;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      padding: 2.5rem 2.8rem;
+    }
+
+    /* header / profile row */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0b2b4a, #1a4a6e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.3rem;
+    }
+
+    .name-title .subhead {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .name-title .subhead i {
+      color: #2c7be0;
+      width: 1.2rem;
+    }
+
+    .contact-badge {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem 1.2rem;
+      background: #f8fafc;
+      padding: 0.6rem 1.6rem;
+      border-radius: 60px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .contact-badge a, .contact-badge span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #1e293b;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-badge a:hover {
+      color: #0b2b4a;
+    }
+
+    .contact-badge i {
+      color: #2c7be0;
+      width: 1.1rem;
+      font-size: 1rem;
+    }
+
+    /* Resume download button */
+    .resume-btn {
+      background: #0b2b4a;
+      color: white !important;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      text-decoration: none;
+    }
+
+    .resume-btn i {
+      color: white !important;
+      font-size: 0.95rem;
+    }
+
+    .resume-btn:hover {
+      background: #1a4a6e;
+      color: white !important;
+      transform: scale(1.02);
+    }
+
+    /* summary */
+    .summary {
+      background: #f1f6fe;
+      padding: 1.3rem 1.8rem;
+      border-radius: 1.2rem;
+      margin-bottom: 2.2rem;
+      border-left: 5px solid #2c7be0;
+      font-size: 0.98rem;
+      color: #1e293b;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .summary strong {
+      font-weight: 600;
+    }
+
+    /* grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.2rem;
+    }
+
+    /* left column */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e9edf2;
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title i {
+      color: #2c7be0;
+      font-size: 1.1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.6rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #dce3ec;
+      padding: 0.35rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      transition: all 0.15s;
+    }
+
+    .skill-tag:hover {
+      border-color: #2c7be0;
+      background: #f1f6fe;
+    }
+
+    .skill-category {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-category h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 0.4rem;
+    }
+
+    .list-soft {
+      list-style: none;
+    }
+
+    .list-soft li {
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .list-soft li i {
+      color: #2c7be0;
+      width: 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    .edu-item {
+      background: #fafcff;
+      padding: 0.8rem 1rem;
+      border-radius: 0.8rem;
+      margin-bottom: 0.7rem;
+      border: 1px solid #eef2f6;
+    }
+
+    .edu-item .degree {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .edu-item .meta {
+      font-size: 0.8rem;
+      color: #475569;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .cert-item {
+      background: #fafcff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.8rem;
+      border: 1px solid #eef2f6;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cert-item span:last-child {
+      font-weight: 500;
+      color: #2c7be0;
+      font-size: 0.75rem;
+      background: #e9f0fa;
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* right panel */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .exp-item, .project-item {
+      background: #fafcff;
+      border-radius: 1rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #eef2f6;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.15s;
+    }
+
+    .exp-item:hover, .project-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-header h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .exp-header .date {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2c7be0;
+      background: #e9f0fa;
+      padding: 0.1rem 0.9rem;
+      border-radius: 30px;
+    }
+
+    .exp-sub {
+      font-weight: 500;
+      color: #475569;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-item ul, .project-item ul {
+      padding-left: 1.2rem;
+      margin-top: 0.4rem;
+      list-style: disc;
+      font-size: 0.92rem;
+      color: #1e293b;
+    }
+
+    .exp-item ul li, .project-item ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .project-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .project-item h3 i {
+      color: #2c7be0;
+      font-size: 1rem;
+    }
+
+    .area-interest {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      background: #f8fafc;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      margin-top: 0.2rem;
+    }
+
+    .area-interest span {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1e293b;
+    }
+
+    .area-interest i {
+      margin-right: 0.4rem;
+      color: #2c7be0;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 0.3rem 0;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid #eef2f6;
+      padding-top: 1.8rem;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .profile-header {
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+      }
+      .contact-badge {
+        flex-wrap: wrap;
+        padding: 0.8rem 1.2rem;
+        border-radius: 30px;
+        width: 100%;
+      }
+      .name-title h1 {
+        font-size: 2rem;
+      }
+      .resume-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-badge {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+      .contact-badge a {
+        justify-content: center;
+      }
+      .cert-item {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.3rem;
+      }
+    }
+
+    /* small extras */
+    .badge-link {
+      background: white;
+      border-radius: 30px;
+      padding: 0.15rem 1rem;
+      border: 1px solid #dce3ec;
+    }
+
+    .icon-hover {
+      transition: transform 0.1s;
+    }
+    .icon-hover:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <div class="profile-header">
+    <div class="name-title">
+      <h1>CHELLAPANDI M</h1>
+      <div class="subhead">
+        <i class="fas fa-graduation-cap"></i> B.E. CSE · Data Analyst
+        <span style="margin-left:0.8rem; background:#eef2f6; padding:0.1rem 1rem; border-radius:20px; font-size:0.8rem;">
+          <i class="fas fa-map-pin"></i> Madurai, TN
+        </span>
+      </div>
+    </div>
+    <div class="contact-badge">
+      <a href="tel:+916381117405"><i class="fas fa-phone-alt"></i> +91 6381117405</a>
+      <a href="mailto:chellapandi24680@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <!-- Resume Download Button -->
+      <a href="Chellapandi_M_Resume.pdf" download class="resume-btn">
+        <i class="fas fa-file-pdf"></i> Resume
+      </a>
+    </div>
+  </div>
+
+  <!-- summary -->
+  <div class="summary">
+    <i class="fas fa-bullseye" style="color:#2c7be0; margin-right:0.6rem;"></i>
+    <strong>Computer Science and Engineering</strong> graduate with skills in SQL, Python, Power BI, Tableau, Advanced Excel, and Machine Learning. Experienced in data cleaning, EDA, dashboard development, and reporting. Passionate about transforming data into actionable business insights.
+  </div>
+
+  <!-- main grid -->
+  <div class="grid-2">
+    <!-- LEFT -->
+    <div class="left-panel">
+
+      <!-- Technical Skills -->
+      <div>
+        <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+
+        <div class="skill-category">
+          <h4>Programming & Databases</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Oracle</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Visualization & Analytics</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Advanced Excel</span>
+            <span class="skill-tag">Pivot Tables</span>
+            <span class="skill-tag">VLOOKUP</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4>Libraries & Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">MS Office</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Other</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Data Cleaning</span>
+            <span class="skill-tag">EDA</span>
+            <span class="skill-tag">Dashboard Dev</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div>
+        <div class="section-title"><i class="fas fa-certificate"></i> Certifications</div>
+        <div class="cert-item"><span>Data Analyst Certification</span> <span>QSpiders 2025</span></div>
+        <div class="cert-item"><span>Power BI Certification</span> <span>Simplilearn 2024</span></div>
+        <div class="cert-item"><span>Python Zero to Hero</span> <span>GUVI 2025</span></div>
+        <div class="cert-item"><span>MS Office – Naan Mudhalvan</span> <span>2023</span></div>
+        <div class="cert-item"><span>TCS iON NQT Cognitive</span> <span>64% (2024)</span></div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <div class="section-title"><i class="fas fa-university"></i> Education</div>
+        <div class="edu-item">
+          <div class="degree">B.E. Computer Science &amp; Engineering</div>
+          <div class="meta"><span>Mohamed Sathak Engineering College</span> <span>CGPA 8.03/10</span></div>
+          <div style="font-size:0.8rem; color:#64748b;">2021 – 2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="degree">HSC (12th)</div>
+          <div class="meta"><span>St. Michael Matriculation HSS</span> <span>76.5%</span></div>
+          <div style="font-size:0.8rem; color:#64748b;">2021</div>
+        </div>
+        <div class="edu-item">
+          <div class="degree">SSLC (10th)</div>
+          <div class="meta"><span>St. Michael Matriculation HSS</span> <span>68.6%</span></div>
+          <div style="font-size:0.8rem; color:#64748b;">2019</div>
+        </div>
+      </div>
+
+      <!-- Soft Skills + Languages -->
+      <div>
+        <div class="section-title"><i class="fas fa-users"></i> Soft Skills</div>
+        <ul class="list-soft">
+          <li><i class="fas fa-lightbulb"></i> Analytical Thinking</li>
+          <li><i class="fas fa-puzzle-piece"></i> Problem Solving</li>
+          <li><i class="fas fa-rocket"></i> Quick Learning</li>
+          <li><i class="fas fa-people-arrows"></i> Teamwork</li>
+          <li><i class="fas fa-clock"></i> Time Management</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+        <div class="lang-item"><span>Tamil</span> <span>Native</span></div>
+        <div class="lang-item"><span>English</span> <span>Professional</span></div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-panel">
+
+      <!-- Internship -->
+      <div>
+        <div class="section-title"><i class="fas fa-briefcase"></i> Internship</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Data Science Intern</h3>
+            <span class="date">Jul 2024 – Aug 2024</span>
+          </div>
+          <div class="exp-sub">Pantech eLearning, Chennai</div>
+          <ul>
+            <li>Processed and cleaned large datasets using Python and Excel.</li>
+            <li>Created interactive dashboards with Power BI and Tableau for business reporting.</li>
+            <li>Assisted in machine learning model development and result analysis.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <div class="section-title"><i class="fas fa-folder-open"></i> Projects</div>
+
+        <div class="project-item">
+          <h3><i class="fas fa-shield-alt"></i> Tax Evasion Detection System</h3>
+          <ul>
+            <li>Developed a machine learning model to identify suspicious financial transactions.</li>
+            <li>Performed data preprocessing, feature engineering, and classification techniques.</li>
+            <li>Achieved high precision in detecting anomalous patterns.</li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <h3><i class="fas fa-utensils"></i> Restaurant Data Analysis</h3>
+          <ul>
+            <li>Analyzed restaurant datasets using Python, Pandas, and Excel.</li>
+            <li>Generated KPIs and business insights through exploratory data analysis.</li>
+            <li>Visualized key metrics to support data-driven decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Areas of Interest + Portfolio placeholder -->
+      <div>
+        <div class="section-title"><i class="fas fa-star"></i> Area of Interest</div>
+        <div class="area-interest">
+          <span><i class="fas fa-chart-bar"></i> Data Analyst</span>
+          <span><i class="fas fa-chart-pie"></i> Power BI Developer</span>
+          <span><i class="fas fa-database"></i> SQL Developer</span>
+        </div>
+        <div style="margin-top: 1rem; background:#f8fafc; border-radius: 60px; padding: 0.5rem 1.2rem; display:inline-block; border:1px dashed #b9c8dd;">
+          <i class="fas fa-globe" style="color:#2c7be0; margin-right:0.5rem;"></i>
+          <span style="font-weight:500;">Portfolio:</span> 
+          <span style="color:#2c7be0; font-weight:600;">Add Portfolio Link</span>
+        </div>
+      </div>
+
+      <!-- extra: quick links -->
+      <div style="margin-top: 0.6rem; display: flex; gap: 1.2rem; flex-wrap: wrap; font-size:0.9rem;">
+        <a href="#" style="color:#1e293b; text-decoration:none; background:#f1f5f9; padding:0.2rem 1.2rem; border-radius:30px;"><i class="fab fa-linkedin"></i> linkedin.com/in/chellapandim</a>
+        <a href="#" style="color:#1e293b; text-decoration:none; background:#f1f5f9; padding:0.2rem 1.2rem; border-radius:30px;"><i class="fab fa-github"></i> github.com/chellapandiM</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <i class="fas fa-map-marker-alt" style="color:#2c7be0;"></i> Madurai, Tamil Nadu &nbsp;·&nbsp; 
+    <i class="fas fa-phone" style="color:#2c7be0;"></i> +91 6381117405 &nbsp;·&nbsp; 
+    <i class="fas fa-envelope" style="color:#2c7be0;"></i> chellapandi24680@gmail.com
+  </div>
+</div>
+</body>
+</html>
